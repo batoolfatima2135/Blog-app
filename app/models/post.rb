@@ -3,8 +3,9 @@ class Post < ApplicationRecord
   has_many :likes, foreign_key: 'post_id'
   has_many :comments, foreign_key: 'post_id'
 
-  def self.update_post_counter(user_id)
-    user = User.find_by(id: user_id)
+  after_save :update_user_post_counter
+
+  def update_user_post_counter
     user.update(posts_counter: user.posts.count)
   end
 
