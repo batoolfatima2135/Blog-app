@@ -12,13 +12,13 @@ RSpec.describe User, type: :model do
   end
 
   it 'is valid with non-negative integer as post counter' do
-    user = User.new(name: "David", posts_counter: 3)
+    user = User.new(name: 'David', posts_counter: 3)
 
     expect(user).to be_valid
   end
-  
+
   it 'is valid with post counter equal to zero' do
-    user = User.new(name: "Mark", posts_counter: 0)
+    user = User.new(name: 'Mark', posts_counter: 0)
     expect(user).to be_valid
   end
 
@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
     expect(user).to_not be_valid
   end
 
-  context '.recent_posts should' do 
+  context '.recent_posts should' do
     before :all do
       @user = User.new(name: 'John Doe')
       @post1 = Post.create(title: 'First Post', user: @user, created_at: 3.days.ago)
@@ -50,6 +50,5 @@ RSpec.describe User, type: :model do
         expect(post.created_at).to be >= next_post.created_at
       end
     end
-
   end
 end
