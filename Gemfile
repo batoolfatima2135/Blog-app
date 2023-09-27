@@ -74,4 +74,3 @@ group :test do
   gem 'selenium-webdriver'
 end
 gem 'will_paginate'
-
