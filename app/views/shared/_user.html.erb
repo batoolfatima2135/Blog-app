@@ -1,0 +1,15 @@
+<div class="row m-lg-4 m-md-3 m-2 justify-content-center align-items-center ">
+  <div class="col-lg-2 col-md-3 col-4">
+    <img src="<%= user.photo %>"  alt="photo" class="img-fluid"/>
+  </div>
+  <div class="col-lg-6 col-md-8 col-7 border m-lg-2 p-lg-5 p-md-5 p-1  ">
+    <div class="row">
+      <div class="col-6 text-center d-flex align-items-center justify-content-center">
+        <h1><%= user.name %></h1>
+      </div>
+      <div class="col-6 row align-items-end">
+        <p class="mb-0">Number of posts: <%= user.posts_counter %></p>
+      </div>
+    </div>
+  </div>
+</div>
