@@ -1,1 +1,19 @@
-<h1>Here is detail of a specific user</h1>
+<%= render "shared/user", user: @user  %>
+ <div class="row m-lg-4 m-md-3 m-lg-2 m-1 justify-content-center align-items-center ">
+  <div class="col-lg-8 col-md-11 col-11 border p-lg-2 p-1">
+    <h5>Bio</h5>
+    <p><%= @user.bio %></p>
+  </div>
+  <%if @user.posts.any? %>
+    <% @user.posts.each_with_index do |post, index| %>
+      <a href="/users/<%= @user.id %>/posts/<%= post.id %>" class="text-decoration-none" >
+      <%= render "shared/post", post: post, post_index: index + 1 %>
+      </a>
+    <% end %>
+    <a href="/users/<%= @user.id %>/posts" class="btn btn-primary col-2 mt-3" >See all posts</a>
+  <% else %>
+    <div class="col-lg-8 col-md-11 col-11 border p-lg-2 p-1 mt-3">
+      <h5> No posts yet </h5>
+    </div>
+  <% end %>
+</div>

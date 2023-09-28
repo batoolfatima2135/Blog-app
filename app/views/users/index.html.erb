@@ -1,1 +1,9 @@
-<h1>Here is the list of all users</h1>
+<% if @users.any? %>
+  <% @users.each do |user| %>
+    <a href="/users/<%= user.id %>" class="text-decoration-none">
+    <%= render "shared/user", user: user  %>
+    </a>
+    <% end %>
+<% else %>
+    <h1 class="text-center m-auto">No users yet</h1>
+<% end %>
