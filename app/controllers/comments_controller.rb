@@ -6,17 +6,16 @@ class CommentsController < ApplicationController
     @comment.user = current_user # Assuming you have user authentication in place
 
     if @comment.save
-      flash[:success] = "Comment created successfully!"
-      redirect_to user_post_path(@user, @post)
+      flash[:success] = 'Comment created successfully!'
     else
-      flash[:error] = "Comment could not be saved."
-      redirect_to user_post_path(@user, @post)
+      flash[:error] = 'Comment could not be saved.'
     end
+    redirect_to user_post_path(@user, @post)
   end
 
   private
 
   def comment_params
-  params.require(:comment).permit(:text) # Permit :text instead of :content
-end
+    params.require(:comment).permit(:text) # Permit :text instead of :content
+  end
 end

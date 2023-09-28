@@ -19,17 +19,17 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to user_posts_path(id: current_user.id)
     else
-    flash.now[:alert] = 'Cannot create a new post' 
-    render :new
+      flash.now[:alert] = 'Cannot create a new post'
+      render :new
     end
   end
-  
 
   def index
     @user = User.find(params[:user_id])
     @posts = Post.where(author_id: @user.id).paginate(page: params[:page], per_page: 10)
   end
-   private
+
+  private
 
   def post_params
     params.require(:post).permit(:title, :text)
