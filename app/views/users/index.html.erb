@@ -1,3 +1,4 @@
+ <%= link_to "Add a new post", new_user_post_path(user_id: @user.id), class: "btn btn-primary"%>
 <% if @users.any? %>
   <% @users.each do |user| %>
     <a href="/users/<%= user.id %>" class="text-decoration-none">

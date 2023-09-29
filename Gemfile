@@ -73,4 +73,5 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
+gem 'pry-rails', group: %i[development test]
 gem 'will_paginate'
