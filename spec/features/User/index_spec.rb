@@ -10,22 +10,6 @@ RSpec.feature 'User Index Page' do
   let!(:post1) { Post.create(user: user1, title: "test") }
   let!(:post2) { Post.create(user: user2, title: "test") }
 
-  scenario 'Displays usernames, profile pictures, and post counts' do
-    visit users_path
-
-    # Verify that usernames are displayed
-    expect(page).to have_content(user1.name)
-    expect(page).to have_content(user2.name)
-
-    # Verify that profile pictures are displayed 
-    expect(page).to have_css("img[src='#{user1.photo}']")
-    expect(page).to have_css("img[src='#{user2.photo}']")
-
-    # Verify that post counts are displayed
-    expect(page).to have_content("Number of posts: #{user1.posts_counter}")
-    expect(page).to have_content("Number of posts: #{user2.posts_counter}")
-  end
-
   scenario 'Displays usernames' do
     visit users_path
 
@@ -34,7 +18,7 @@ RSpec.feature 'User Index Page' do
 
   end
 
-  scenario 'Displays profile pictures, and post counts' do
+  scenario 'Displays profile pictures' do
     visit users_path
 
     expect(page).to have_css("img[src='#{user1.photo}']")
