@@ -1,5 +1,3 @@
-# spec/features/user_post_index_spec.rb
-
 require 'rails_helper'
 
 RSpec.feature 'User Post Index Page' do
