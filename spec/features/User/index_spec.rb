@@ -26,12 +26,33 @@ RSpec.feature 'User Index Page' do
     expect(page).to have_content("Number of posts: #{user2.posts_counter}")
   end
 
+  scenario 'Displays usernames' do
+    visit users_path
+
+    expect(page).to have_content(user1.name)
+    expect(page).to have_content(user2.name)
+
+  end
+
+  scenario 'Displays profile pictures, and post counts' do
+    visit users_path
+
+    expect(page).to have_css("img[src='#{user1.photo}']")
+    expect(page).to have_css("img[src='#{user2.photo}']")
+  end
+
+  scenario 'Displays post counts' do
+    visit users_path
+
+    expect(page).to have_content("Number of posts: #{user1.posts_counter}")
+    expect(page).to have_content("Number of posts: #{user2.posts_counter}")
+  end
+
   scenario 'Redirects to user show page when clicked' do
     visit users_path
 
     click_link user1.name
-    save_and_open_page
-    # Verify that the page redirects to the user's show page
+    sleep(1)
     expect(current_path).to eq(user_path(user1))
   end
 end
