@@ -15,9 +15,13 @@
     <%= render 'shared/comment_form', post: @post, user: @user %>
    
     <div class="my-3">
+       
        <% if @post.comments.any? %>
     <% @post.comments.each do |comment| %>
-      <p><%= comment.user&.name %>: <%= comment.text %></p>
+
+      <% if comment.user %>
+      <p><%= comment.user.name %>: <%= comment.text %></p>
+      <% end %>
     <% end %>
     <% else %>
       <p>No comments yet</p>

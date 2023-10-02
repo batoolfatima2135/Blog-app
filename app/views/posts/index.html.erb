@@ -2,7 +2,7 @@
 
 <% if @posts.any? %>
   <% @posts.each_with_index do |post, index| %>
-    <a href="/users/<%= post.author_id %>/posts/<%= post.id %>?index=<%= index + 1 %>" class="text-decoration-none">
+    <a href="<%= user_post_path(@user, post)%>?index=<%= index + 1 %>" class="text-decoration-none">
       <%= render "shared/post", post: post, post_index: index + 1 %>
       <div class="row justify-content-center align-items-center my-1">
          <div class="col-lg-8 col-md-11 col-11 border p-2 ">
