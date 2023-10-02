@@ -6,7 +6,6 @@ RSpec.feature 'User show page' do
   let!(:post2) { Post.create(user: user1, title: 'Test post 2') }
   let!(:post3) { Post.create(user: user1, title: 'Test post 3') }
 
-
   scenario 'Displays user\'s Profile picture, username, bio and number of posts' do
     visit user_path(user1)
     expect(page).to have_css("img[src='#{user1.photo}']")
