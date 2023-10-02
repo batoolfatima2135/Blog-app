@@ -1,13 +1,13 @@
 <%= render "shared/user", user: @user %>
 
 <% if @posts.any? %>
-  <% @posts.each_with_index do |post, index| %>
-    <a href="/users/<%= post.author_id %>/posts/<%= post.id %>?index=<%= index + 1 %>" class="text-decoration-none">
+  <% @posts.includes(:user ,comments: :user).each_with_index do |post, index| %>
+    <a href="<%= user_post_path(@user, post)%>?index=<%= index + 1 %>" class="text-decoration-none">
       <%= render "shared/post", post: post, post_index: index + 1 %>
       <div class="row justify-content-center align-items-center my-1">
          <div class="col-lg-8 col-md-11 col-11 border p-2 ">
             <% if post.comments.any? %>
-               <% post.comments.first(3).each do |comment| %>
+               <% post.comments.includes(:user).first(3).each do |comment| %>
                   <p><%= comment.user.name %>: <%= comment.text %></p>
                <% end %>
             <% else %>

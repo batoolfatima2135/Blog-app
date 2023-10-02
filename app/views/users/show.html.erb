@@ -6,11 +6,11 @@
   </div>
   <%if @user.posts.any? %>
     <% @user.posts.each_with_index do |post, index| %>
-      <a href="/users/<%= @user.id %>/posts/<%= post.id %>" class="text-decoration-none" >
+      <a href="<%= user_post_path(@user, post) %>" class="text-decoration-none" >
       <%= render "shared/post", post: post, post_index: index + 1 %>
       </a>
     <% end %>
-    <a href="/users/<%= @user.id %>/posts" class="btn btn-primary col-2 mt-3" >See all posts</a>
+    <a href="<%= user_posts_path(@user) %>" class="btn btn-primary col-2 mt-3" >See all posts</a>
   <% else %>
     <div class="col-lg-8 col-md-11 col-11 border p-lg-2 p-1 mt-3">
       <h5> No posts yet </h5>

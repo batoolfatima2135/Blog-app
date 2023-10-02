@@ -20,7 +20,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'includes correct placeholder text in the response body' do
-      expect(response.body).to include('Here is the list of all users')
+      expect(response.body).to include('Number of posts')
     end
   end
 
@@ -39,7 +39,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'includes correct placeholder text in the response body' do
-      expect(response.body).to include('Here is detail of a specific user')
+      expect(response.body).to include('Number of posts')
     end
   end
 end

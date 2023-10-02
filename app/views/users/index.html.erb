@@ -1,9 +1,11 @@
+ <% if @users.any? %>
  <%= link_to "Add a new post", new_user_post_path(user_id: @user.id), class: "btn btn-primary"%>
+ <% end %>
 <% if @users.any? %>
   <% @users.each do |user| %>
-    <a href="/users/<%= user.id %>" class="text-decoration-none">
+    
     <%= render "shared/user", user: user  %>
-    </a>
+
     <% end %>
 <% else %>
     <h1 class="text-center m-auto">No users yet</h1>
