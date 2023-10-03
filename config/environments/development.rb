@@ -43,6 +43,15 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.elasticemail.com',
+    port: 2525, # Elastic Email SMTP port
+    user_name: ENV['batoolfatima2135@gmail.com'],
+    password: ENV['36D74EDE5243A780B74EE8959B291A5AA291'], # Use your API key as the password
+    authentication: :login,
+    enable_starttls_auto: true
+  }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
