@@ -37,17 +37,17 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   config.action_mailer.smtp_settings = {
-    address: 'smtp.elasticemail.com',
-    port: 2525, # Elastic Email SMTP port
-    user_name: ENV['batoolfatima2135@gmail.com'],
-    password: ENV['36D74EDE5243A780B74EE8959B291A5AA291'], # Use your API key as the password
+    address: 'sandbox.smtp.mailtrap.io',
+    port: 2525, 
+    user_name: '6dc1e8bc5523b5',
+    password: '5dc4fb649aacea', 
     authentication: :login,
     enable_starttls_auto: true
   }
