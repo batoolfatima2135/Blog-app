@@ -75,3 +75,4 @@ group :test do
 end
 gem 'pry-rails', group: %i[development test]
 gem 'will_paginate'
+gem 'devise'
