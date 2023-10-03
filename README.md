@@ -54,6 +54,7 @@
 - **Write Posts**
 - **Likes on Posts**
 - **Comments on Posts**
+- **User Authentication**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -170,7 +171,7 @@ it will run the all the unit test of these project
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **Add Authentication**
+- **Add Authorization**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
