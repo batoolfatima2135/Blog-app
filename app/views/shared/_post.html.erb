@@ -2,10 +2,9 @@
   <div class="col-lg-8 col-md-11 col-11 border p-2 ">
     <h5>Post #<%= post_index %>: <%= post.title %> </h5>
     <br>
-    <p><%= post.text %></p>
-    <% if can?(:destroy, post) %>
-      <%= link_to 'Delete', user_post_path(post.user, post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-    <% end %>
+    <p><%= post.text %>
+         
+    </p>
 
     <p class="text-end">comments:  <%= post.comments_counter %> , likes:  <%= post.likes_counter %> </p>
     
