@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     redirect_to user_post_path(current_user, @comment.post_id)
   end
 
-   def destroy
+  def destroy
     @comment = Comment.find(params[:id])
     authorize! :destroy, @comment
     redirect_url = request.referer || fallback_url
@@ -34,6 +34,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:text)
   end
-
- 
 end
