@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
+  load_and_authorize_resource
 
   def show
     @post = Post.find(params[:id])
