@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'devise'
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 ruby '3.2.2'
@@ -74,4 +75,5 @@ group :test do
   gem 'selenium-webdriver'
 end
 gem 'pry-rails', group: %i[development test]
+
 gem 'will_paginate'
