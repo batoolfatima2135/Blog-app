@@ -9,7 +9,7 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   # POST /api/v1/posts/:post_id/comments
- 
+
   def create
     if current_user.nil?
       render json: { errors: ['Authentication required'] }, status: :unauthorized
