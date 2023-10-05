@@ -2,12 +2,17 @@
   <div class="col-lg-8 col-md-11 col-11 border p-lg-2 p-1">
     <div class="d-flex justify-content-between">
       <h5><%= @post.title %> by <%=  @post.user.name %></h5>
-      <p>Comments: <%= @post.comments_counter %> , Likes:  <%= @post.likes_counter %></p>
+     
+      <p>Comments: <%= @post.comments_counter %> , Likes:  <%= @post.likes_counter %> </p>
     </div>
     
     <br>
     <p><%= @post.text %></p>
+     <% if can?(:destroy, @post) %>
+      <%= button_to 'Delete Post', user_post_path(@post.user, @post), method: :delete, class: 'btn btn-danger' %>
+    <% end %>
   </div>
+  
 </div>
 <div class="row mx-lg-4 mx-md-3 mx-lg-2 mx-1 justify-content-center align-items-center ">
   <div class="col-lg-8 col-md-11 col-11 border p-lg-2 p-1">
@@ -26,7 +31,10 @@
     <% @post.comments.each do |comment| %>
 
       <% if comment.user %>
-      <p><%= comment.user.name %>: <%= comment.text %></p>
+      <p><%= comment.user.name %>: <%= comment.text %><% if can?(:destroy, comment) %>
+        <%= button_to 'Delete Comment', user_post_comment_path(@user, @post, comment), method: :delete, class: 'btn btn-danger' %>
+      <% end %></p>
+      
       <% end %>
     <% end %>
     <% else %>
