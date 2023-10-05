@@ -1,7 +1,6 @@
 class User < ApplicationRecord
-          
-            include DeviseTokenAuth::Concerns::User
-          
+  include DeviseTokenAuth::Concerns::User
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :posts, foreign_key: 'author_id'
