@@ -9,12 +9,7 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   # POST /api/v1/posts/:post_id/comments
-  # to get authentication token send POST request to http://localhost:3000/api/v1/auth/sign_in
-  # Send email and password with the request
-  # Authentication token for batoolfatima2135@gmail.com
-  # Bearer eyJhY2Nlc3MtdG9rZW4iOiJsLUlvSHhNUXItc0VTdVBURTg0Y19RIiwidG9rZW4tdHlw
-  # ZSI6IkJlYXJlciIsImNsaWVudCI6InYtekt4Y3lLR1gtUjJXcEdwQ3o0MGciLCJleHBpcnkiOiIx
-  # Njk2NTI0NzY3IiwidWlkIjoiYmF0b29sZmF0aW1hMjEzNUBnbWFpbC5jb20ifQ==
+ 
   def create
     if current_user.nil?
       render json: { errors: ['Authentication required'] }, status: :unauthorized
