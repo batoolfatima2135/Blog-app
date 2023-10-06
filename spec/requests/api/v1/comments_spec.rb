@@ -1,7 +1,7 @@
 require 'swagger_helper'
 
 describe 'Comments API' do
-   path '/api/v1/users/{user_id}/posts/{post_id}/comments' do
+  path '/api/v1/users/{user_id}/posts/{post_id}/comments' do
     parameter name: 'user_id', in: :path, type: :string, description: 'User ID'
     parameter name: 'post_id', in: :path, type: :string, description: 'Post ID'
 
@@ -14,20 +14,19 @@ describe 'Comments API' do
 
       response '200', 'comments found' do
         schema type: :array,
-          items: {
-            type: :object,
-            properties: {
-              id: { type: :integer },
-              text: { type: :string },
-            },
-          }
+               items: {
+                 type: :object,
+                 properties: {
+                   id: { type: :integer },
+                   text: { type: :string }
+                 }
+               }
 
         run_test!
       end
     end
-   end
+  end
   path '/api/v1/posts/{post_id}/comments' do
-   
     # Create Action
     post 'Creates a new comment' do
       tags 'Comments'
@@ -36,31 +35,31 @@ describe 'Comments API' do
       parameter name: :text, in: :body, schema: {
         type: :object,
         properties: {
-          text: { type: :string },
+          text: { type: :string }
         },
-        required: ['text'],
+        required: ['text']
       }
 
       response '201', 'comment created' do
         schema type: :object,
-          properties: {
-            id: { type: :integer },
-            text: { type: :string },
-          }
+               properties: {
+                 id: { type: :integer },
+                 text: { type: :string }
+               }
 
         run_test!
       end
 
       response '422', 'unprocessable entity' do
         schema type: :object,
-          properties: {
-            errors: {
-              type: :array,
-              items: {
-                type: :string,
-              },
-            },
-          }
+               properties: {
+                 errors: {
+                   type: :array,
+                   items: {
+                     type: :string
+                   }
+                 }
+               }
 
         run_test!
       end
