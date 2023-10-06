@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'cancancan'
 gem 'devise'
-gem 'devise_token_auth'
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 ruby '3.2.2'
@@ -79,3 +78,5 @@ end
 gem 'pry-rails', group: %i[development test]
 
 gem 'will_paginate'
+
+gem 'rswag'
